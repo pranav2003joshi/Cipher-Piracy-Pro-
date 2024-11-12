@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Appex Video Downlaod",
+  "version": "1.0",
+  "description": "The extension helps you to download the encrypted videos uploaded on appx",
+  "devtools_page": "devtool.html",
+  "action": {
+    "default_icon": {
+      "16": "./piracy.png",
+      "32": "./piracy.png"
+    },
+    "title": "The extension helps you to download the encrypted videos uploaded on appx",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "./background.js",
+    "type": "module"
+  },
+  "host_permissions": ["*://*/*"],
+  "permissions": ["nativeMessaging", "webRequest", "*://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
